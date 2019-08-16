@@ -46,21 +46,13 @@ def score(y_predict, y):
 
 X, y = read_data(base_path, 'diabetes.csv')
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
-# fit(X_train.values, y_train.values)
-# predictions = []
-# for x_test in X_test.values:
-# 	prediction = predict(x_test, 10)
-# 	predictions.append(prediction)
+fit(X_train.values, y_train.values)
+predictions = []
+for x_test in X_test.values:
+	prediction = predict(x_test, 10)
+	predictions.append(prediction)
 
-# print(score(np.array(predictions), y_test.values))
-
-
-from sklearn.neighbors import KNeighborsClassifier
-neigh = KNeighborsClassifier(n_neighbors=3)
-neigh.fit(X_train, y_train)
-predicts = neigh.predict(X_test)
-
-print(neigh.score(y_test, predicts))
+print(score(np.array(predictions), y_test.values))
 
 
 
